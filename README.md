@@ -6,6 +6,6 @@ To run..
 
 you should be able to access the console using the following link..
 
-http://localhost:8080/jbpm-console
+http://localhost:8080/
 
 __NOTE: it can take a few minutes to start up__
