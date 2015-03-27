@@ -26,7 +26,7 @@ RUN /tmp/configure_mysql.sh && rm /tmp/configure_mysql.sh
 
 EXPOSE 8080 
 
+RUN mv /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/standalone/deployments/jbpm-console.war /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/standalone/deployments/ROOT.war
 ADD start.sh /
-ADD mysql.server /etc/init.d/
 
 CMD /start.sh
