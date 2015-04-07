@@ -5,8 +5,8 @@ MAINTAINER fabric8.io <fabric8@googlegroups.com>
 # install Java 7
 RUN yum -y install java-1.7.0-openjdk mysql-server mysql install git ant wget; yum clean all
 
-ENV JBPM_VERSION 6.1.0.Final
-ENV JBPM_HOME /opt/jbpm 
+ENV JBPM_VERSION 6.2.0.Final
+ENV JBPM_HOME /opt/jbpm
 
 RUN wget -nv http://ufpr.dl.sourceforge.net/project/jbpm/jBPM%206/jbpm-${JBPM_VERSION}/jbpm-${JBPM_VERSION}-installer-full.zip -O /tmp/jbpm-${JBPM_VERSION}-installer-full.zip
 RUN yum install -y unzip
@@ -24,7 +24,7 @@ RUN ant install.demo.noeclipse
 ADD configure_mysql.sh /tmp/
 RUN /tmp/configure_mysql.sh && rm /tmp/configure_mysql.sh
 
-EXPOSE 8080 
+EXPOSE 8080
 
 RUN mv /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/standalone/deployments/jbpm-console.war /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/standalone/deployments/ROOT.war
 ADD start.sh /
