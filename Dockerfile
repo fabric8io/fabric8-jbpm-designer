@@ -29,4 +29,7 @@ EXPOSE 8080
 RUN mv /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/standalone/deployments/jbpm-console.war /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/standalone/deployments/ROOT.war
 ADD start.sh /
 
+# wildfly module.xml refers to jar without version in the name
+RUN mv /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/modules/com/mysql/main/mysql-connector-java-5.1.18.jar /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/modules/com/mysql/main/mysql-connector-java.jar
+
 CMD /start.sh
