@@ -32,4 +32,10 @@ ADD start.sh /
 # wildfly module.xml refers to jar without version in the name
 RUN mv /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/modules/com/mysql/main/mysql-connector-java-5.1.18.jar /opt/jbpm/jbpm-installer/wildfly-8.1.0.Final/modules/com/mysql/main/mysql-connector-java.jar
 
+# lets populate a default workflow example
+ADD cdelivery /opt/jbpm/examples/cdelivery
+WORKDIR /opt/jbpm/examples/cdelivery
+RUN git config --global user.name "fabric8" && git config --global user.email fabric8@googlegroups.com && \
+    git init && git add * .gitignore && git commit -m "Initial import"
+
 CMD /start.sh
